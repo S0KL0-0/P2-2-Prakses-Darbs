@@ -41,8 +41,21 @@ function set_new_task(task) {
     const Image = document.getElementById("image");
     Image.src = task.image;
 
-   // const Options = document.getElementById("options");
+   const Options = document.getElementById("options");
    // Options.innertext = task.options;
+
+    for (let i = 0; i < task.options.length; i++) {
+        if (task.type === 'single') {
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.className = 'question-option';
+            input.value = name;
+            input.id = name;
+            input.name = 'question-option';
+        } else if (task.type === 'multi') {
+
+        }
+    }
 
 }
 

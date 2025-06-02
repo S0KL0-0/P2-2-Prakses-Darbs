@@ -16,8 +16,8 @@
     justify-content: center;
 }
 
-#image_div {
+#image {
     border-radius: 8px;
-    width: 30%;
-    height: 30%;
+    max-width: 30%;
+    max-height: 30%;
 }
