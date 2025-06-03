@@ -123,6 +123,11 @@ let selected_task_indices = [];
 let selected_task_answers = []; // will be in corresponding to selected_task_indices
 let selected_task_index = -1; // current selected task arrays index
 
+let countdownTimer = null;
+let startTime = null;
+let targetTime = null;
+let testCompleted = false;
+
 function isIndexUsed(index) {
     return selected_task_indices.includes(index);
 }
@@ -193,7 +198,11 @@ function get_new_task() {
 //     Test_Results.appendChild(resultsTable);
 // }
 
-function end_test() {
+function end_test(reason = 'completed') {
+
+    testCompleted = true;
+    stopCountdown();
+
     const Task = document.getElementById("task");
     Task.style.display = 'none';
 
@@ -207,14 +216,18 @@ function end_test() {
     const totalQuestions = selected_task_answers.length;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
 
+    const elapsedTime = getElapsedTimeFormatted();
+    const reasonText = reason === 'timeout' ? ' (laiks beidzās)' : '';
+
     const scoreDiv = document.createElement('div');
     scoreDiv.className = 'score-display';
     scoreDiv.innerHTML = `
-        <h2>Testa rezultāts</h2>
+        <h2>Testa rezultāts${reasonText}</h2>
         <div class="score-summary">
             <p><strong>Rezultāts: ${correctAnswers}/${totalQuestions}</strong></p>
             <p><strong>Procenti: ${percentage}%</strong></p>
-            ${percentage >= 70 ? '<p class="pass">✅ Tests izturēts!</p>' : '<p class="fail">❌ Tests nav izturēts</p>'}
+            <div class="time-info">Pavadītais laiks: ${elapsedTime}</div>
+            ${percentage >= 70 ? '<p class="pass">✅ Tests nolikts!</p>' : '<p class="fail">❌ Tests nenolikts!</p>'}
         </div>
     `;
 
@@ -358,9 +371,11 @@ function next_button_pressed() {
     }
 }
 
-    function startTest() {
+function startTest() {
+    testCompleted = false;
     const task = get_new_task();
     set_new_task(task);
+    startCountdown(tasks.length);
 }
 
 // https://csnt2.csdd.lv/LAT/parskats
@@ -368,7 +383,75 @@ function next_button_pressed() {
 
 // jābūt 30 jautājumiem, 30min, 3 kļūdām max
 
-// TODO: Create and display a timer with a countdown (e.g. 10 minutes)
-// TODO: Automatically end the test and show results when time runs out
-// TODO: Show the remaining time during the test
 // TODO: Randomize the order of answer options for each question
+
+function formatTime(minutes, seconds) {
+    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function getElapsedTimeFormatted() {
+    if (startTime === null) return "00:00";
+
+    const endTime = testCompleted ? (targetTime - (targetTime - new Date().getTime())) : new Date().getTime();
+    const elapsedMs = endTime - startTime;
+    const elapsedMin = Math.floor(elapsedMs / 60000);
+    const elapsedSec = Math.floor((elapsedMs % 60000) / 1000);
+    return formatTime(elapsedMin, elapsedSec);
+}
+
+function startCountdown(minutes) {
+    if (countdownTimer !== null) {
+        clearInterval(countdownTimer); // Prevent multiple intervals
+    }
+
+    startTime = new Date().getTime();
+    targetTime = startTime + minutes * 60 * 1000;
+
+    updateCountdown();
+
+    countdownTimer = setInterval(updateCountdown, 1000);
+}
+
+function updateCountdown() {
+    if (testCompleted) return;
+
+    const currentTime = new Date().getTime();
+    const distance = targetTime - currentTime;
+
+    if (distance <= 0) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+        document.getElementById("countdown").textContent = "00:00";
+        document.getElementById("countdown").className = "danger";
+        onCountdownEnd();
+        return;
+    }
+
+    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const countdownElement = document.getElementById("countdown");
+    countdownElement.textContent = formatTime(mins, secs);
+
+    // Add visual warnings for low time
+    if (mins < 1) {
+        countdownElement.className = "danger";
+    } else if (mins < 5) {
+        countdownElement.className = "warning";
+    } else {
+        countdownElement.className = "";
+    }
+}
+
+function stopCountdown() {
+    if (countdownTimer !== null) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+    }
+}
+
+function onCountdownEnd() {
+    if (!testCompleted) {
+        end_test('timeout');
+    }
+}
