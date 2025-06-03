@@ -148,56 +148,6 @@ function get_new_task() {
     return tasks[index];
 }
 
-// function end_test() {
-//     const Task = document.getElementById("task");
-//     Task.style.display = 'none';
-//
-//     const Test_Results = document.getElementById("test_results");
-//     Test_Results.style.display = 'block';
-//
-//     // Hide the Next button
-//     const Next_Button = document.getElementById("next-button");
-//     Next_Button.style.display = 'none';
-//
-//     // Create results table
-//     const resultsTable = document.createElement('table');
-//     resultsTable.className = 'results-table';
-//
-//     // Header row
-//     const headerRow = document.createElement('tr');
-//     ['#', 'Jautājums', 'Rezultāts'].forEach(text => {
-//         const th = document.createElement('th');
-//         th.textContent = text;
-//         headerRow.appendChild(th);
-//     });
-//     resultsTable.appendChild(headerRow);
-//
-//     // Content rows
-//     for (let i = 0; i < selected_task_indices.length; i++) {
-//         const task = tasks[selected_task_indices[i]];
-//         const answered = selected_task_answers[i];
-//
-//         const row = document.createElement('tr');
-//
-//         const numberCell = document.createElement('td');
-//         numberCell.textContent = i + 1;
-//
-//         const questionCell = document.createElement('td');
-//         questionCell.textContent = task.question;
-//
-//         const resultCell = document.createElement('td');
-//         resultCell.textContent = answered === 'correct' ? '✅ Pareizi' : '❌ Nepareizi';
-//         resultCell.style.color = answered === 'correct' ? 'green' : 'red';
-//
-//         row.appendChild(numberCell);
-//         row.appendChild(questionCell);
-//         row.appendChild(resultCell);
-//         resultsTable.appendChild(row);
-//     }
-//
-//     Test_Results.appendChild(resultsTable);
-// }
-
 function end_test(reason = 'completed') {
 
     testCompleted = true;
