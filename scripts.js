@@ -1,26 +1,224 @@
-
 const tasks = [
     {
-        name: '1. Jautājums',
-        question: 'Kā ietriekties kokā?',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Car_crash_1.jpg/1024px-Car_crash_1.jpg',
+        question: 'Vai attēlotajā situācijā ir atļauts attīstīt atļauto braukšanas ātrumu 90km/h?',
+        image: 'imgs/img-1.jpg',
         type: 'single', // single / multi
-        options: ['Ietriekties kokā',
-            'Braukt pa ceļu',
-            'ietriekties mājā'],
-        answer: 'Ietriekties kokā'
+        options:
+            [
+                'Atļauts.',
+                'Aizliegts.'
+            ],
+        answer: 'Atļauts.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-2.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Dosiet ceļu tikai sarkanā automobiļa vadītājam.',
+                'Dosiet ceļu abiem transportlīdzekļu vadītājiem.',
+                'Dosiet ceļu tikai zaļā automobiļa vadītājam.',
+                'Šķērsosiet krustojumu pirmais.'
+            ],
+        answer: 'Šķērsosiet krustojumu pirmais.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-3.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Dosiet ceļu tikai operatīvā transportlīdzekļa vadītājam.',
+                'Dosiet ceļu abu transportlīdzekļu vadītājiem.',
+                'Šķērsosiet krustojumu pirmais.'
+            ],
+        answer: 'Dosiet ceļu tikai operatīvā transportlīdzekļa vadītājam.'
+    },
+    {
+        question: 'Kā degvielas patēriņu ietekmē antispārns?',
+        image: 'imgs/img-4.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Degvielas patēriņš palielinās.',
+                'Degvielas patēriņš samazinās.'
+            ],
+        answer: 'Degvielas patēriņš palielinās.'
+    },
+    {
+        question: 'Kura transportlīdzekļa vadītājam ir priekšroka apdzīvotās vietās?',
+        image: 'imgs/img-5.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Autobusa vadītājam.',
+                'Vieglā automobiļa vadītājam.'
+            ],
+        answer: 'Autobusa vadītājam.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-6.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Dosiet ceļu tikai pretim braucošā transportlīdzekļa vadītājam.',
+                'Dosiet ceļu tikai kravas automobiļa vadītājam.',
+                'Dosiet ceļu abiem transportlīdzekļu vadītājiem.'
+            ],
+        answer: 'Dosiet ceļu abiem transportlīdzekļu vadītājiem.'
+    },
+    {
+        question: 'Kā jārīkojas automobiļa vadītājam attēlotajā situācijā?',
+        image: 'imgs/img-7.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Jābrauc ar tādu ātrumu, lai, ja nepieciešams, varētu nekavējoties apturēt automobili.',
+                'Veicot apbraukšanu pilnībā jāiebrauc pretējā braukšanas joslā .',
+                'Jāsignalizē un jāieslēdz avārijas gaismas signalizācija.'
+            ],
+        answer: 'Jābrauc ar tādu ātrumu, lai, ja nepieciešams, varētu nekavējoties apturēt automobili.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-8.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Dosiet ceļu pretim braucošajam vieglā automobiļa vadītājam.',
+                'Dosiet ceļu kravas automobiļa vadītājam.',
+                'Šķērsosiet krustojumu pirmais.'
+            ],
+        answer: 'Dosiet ceļu kravas automobiļa vadītājam.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-9.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Šķērsosiet krustojumu pirmais.',
+                'Dosiet ceļu tikai velosipēda vadītājam.',
+                'Dosiet ceļu vieglā automobiļa un velosipēda vadītājam.',
+                'Dosiet ceļu tikai vieglā automobiļa vadītājam.'
+            ],
+        answer: 'Šķērsosiet krustojumu pirmais.'
+    },
+    {
+        question: 'Kā rīkosieties attēlotajā situācijā?',
+        image: 'imgs/img-10.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Apbrauksiet šķērsli pa labo pusi.',
+                'Dosiet ceļu zilajam automobilim un apbrauksiet šķērsli pa kreiso pusi.'
+            ],
+        answer: 'Apbrauksiet šķērsli pa labo pusi.'
     }
 ];
-const task_count = 1;
 
-selected_tasks = [];
+let selected_task_indices = [];
+let selected_task_answers = []; // will be in corresponding to selected_task_indices
+let selected_task_index = -1; // current selected task arrays index
+
+function isIndexUsed(index) {
+    return selected_task_indices.includes(index);
+}
 
 function get_new_task() {
-    const index = 0;
 
-    selected_tasks.push(index);
+    if (selected_task_indices.length >= tasks.length) {
+        return null;
+    }
 
+    let index;
+    do {
+        index = Math.floor(Math.random() * tasks.length);
+    } while (isIndexUsed(index));
+
+    selected_task_indices.push(index);
+    selected_task_index++;
     return tasks[index];
+}
+
+// function end_test() {
+//     const Task = document.getElementById("task");
+//     Task.style.display = 'none';
+//
+//     const Test_Results = document.getElementById("test_results");
+//     Test_Results.style.display = 'block';
+//
+//     // Hide the Next button
+//     const Next_Button = document.getElementById("next-button");
+//     Next_Button.style.display = 'none';
+//
+//     // Create results table
+//     const resultsTable = document.createElement('table');
+//     resultsTable.className = 'results-table';
+//
+//     // Header row
+//     const headerRow = document.createElement('tr');
+//     ['#', 'Jautājums', 'Rezultāts'].forEach(text => {
+//         const th = document.createElement('th');
+//         th.textContent = text;
+//         headerRow.appendChild(th);
+//     });
+//     resultsTable.appendChild(headerRow);
+//
+//     // Content rows
+//     for (let i = 0; i < selected_task_indices.length; i++) {
+//         const task = tasks[selected_task_indices[i]];
+//         const answered = selected_task_answers[i];
+//
+//         const row = document.createElement('tr');
+//
+//         const numberCell = document.createElement('td');
+//         numberCell.textContent = i + 1;
+//
+//         const questionCell = document.createElement('td');
+//         questionCell.textContent = task.question;
+//
+//         const resultCell = document.createElement('td');
+//         resultCell.textContent = answered === 'correct' ? '✅ Pareizi' : '❌ Nepareizi';
+//         resultCell.style.color = answered === 'correct' ? 'green' : 'red';
+//
+//         row.appendChild(numberCell);
+//         row.appendChild(questionCell);
+//         row.appendChild(resultCell);
+//         resultsTable.appendChild(row);
+//     }
+//
+//     Test_Results.appendChild(resultsTable);
+// }
+
+function end_test() {
+    const Task = document.getElementById("task");
+    Task.style.display = 'none';
+
+    const Test_Results = document.getElementById("test_results");
+    Test_Results.style.display = 'block';
+
+    const Next_Button = document.getElementById("next-button");
+    Next_Button.style.display = 'none';
+
+    const correctAnswers = selected_task_answers.filter(answer => answer === 'correct').length;
+    const totalQuestions = selected_task_answers.length;
+    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+
+    const scoreDiv = document.createElement('div');
+    scoreDiv.className = 'score-display';
+    scoreDiv.innerHTML = `
+        <h2>Testa rezultāts</h2>
+        <div class="score-summary">
+            <p><strong>Rezultāts: ${correctAnswers}/${totalQuestions}</strong></p>
+            <p><strong>Procenti: ${percentage}%</strong></p>
+            ${percentage >= 70 ? '<p class="pass">✅ Tests izturēts!</p>' : '<p class="fail">❌ Tests nav izturēts</p>'}
+        </div>
+    `;
+
+    Test_Results.appendChild(scoreDiv);
 }
 
 function set_new_task(task) {
@@ -30,36 +228,147 @@ function set_new_task(task) {
     const Start_Button = document.getElementById("start-button");
     Start_Button.style.display = 'none';
 
-    const Title = document.getElementById("name");
-    Title.textContent = task.name;
-
-    console.log(Title);
-
     const Question = document.getElementById("question");
     Question.textContent = task.question;
 
     const Image = document.getElementById("image");
     Image.src = task.image;
 
-   const Options = document.getElementById("options");
-   // Options.innertext = task.options;
+    const Options = document.getElementById("options");
+    Options.innerHTML = '';
 
     for (let i = 0; i < task.options.length; i++) {
-        if (task.type === 'single') {
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.className = 'question-option';
-            input.value = name;
-            input.id = name;
-            input.name = 'question-option';
-        } else if (task.type === 'multi') {
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'option-item';
 
+        const input = document.createElement('input');
+
+        if (task.type === 'single') {
+            input.type = 'radio';
+        } else if (task.type === 'multi') {
+            input.type = 'checkbox';
+        } else {
+            input.type = 'radio';
+            console.error('Invalid input type, only allowed single or multi, input type: ' + task.type);
         }
+
+        input.className = 'question-option';
+        input.value = task.options[i];
+        input.id = `option-${i}`;
+        input.name = 'question-option';
+
+        const label = document.createElement('label');
+        label.className = 'option-label';
+        label.htmlFor = `option-${i}`;
+        label.textContent = task.options[i];
+
+        optionDiv.onclick = function () {
+            input.checked = true;
+        };
+
+        optionDiv.appendChild(input);
+        optionDiv.appendChild(label);
+        Options.appendChild(optionDiv);
     }
 
+    const Next_Button = document.getElementById("next-button");
+    Next_Button.style.display = 'flex';
+    Next_Button.style.justifyContent = 'center';
+    Next_Button.style.marginTop = '20px';
 }
 
-function startTest() {
+function arraysMatchExactly(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+
+    const countMap = (arr) => {
+        const map = new Map();
+        for (const val of arr) {
+            map.set(val, (map.get(val) || 0) + 1);
+        }
+        return map;
+    };
+
+    const map1 = countMap(arr1);
+    const map2 = countMap(arr2);
+
+    if (map1.size !== map2.size) return false;
+
+    for (const [key, count] of map1.entries()) {
+        if (map2.get(key) !== count) return false;
+    }
+
+    return true;
+}
+
+
+function next_button_pressed() {
+
+    let current_task = tasks[selected_task_indices[selected_task_index]];
+    let current_task_answer = current_task.answer;
+
+    if (current_task.type === 'single') {
+
+        const selectedOption = document.querySelector('input[name="question-option"]:checked');
+
+        if (!selectedOption) {
+            alert('Lūdzu izvēlieties atbildi pirms turpinat!');
+            return;
+        }
+
+        if (selectedOption.value === current_task_answer) {
+            selected_task_answers[selected_task_index] = 'correct';
+        } else {
+            selected_task_answers[selected_task_index] = 'incorrect';
+        }
+    } else if (current_task.type === 'multi') {
+        // Handle multi-choice questions
+        const selectedOptions = document.querySelectorAll('input[name="question-option"]:checked');
+
+        if (selectedOptions.length === 0) {
+            alert('Lūdzu izvēlieties vismaz vienu atbildi pirms turpinājiet!');
+            return;
+        }
+
+        // Get selected values
+        const selectedValues = Array.from(selectedOptions).map(option => option.value);
+
+        // Assume current_task.answer is an array for multi-choice questions
+        // or a single string that needs to match all selected answers
+        let isCorrect = false;
+
+        if (Array.isArray(current_task_answer)) {
+            isCorrect = arraysMatchExactly(selectedValues, current_task_answer);
+        } else {
+            isCorrect = selectedValues.includes(current_task_answer);
+        }
+
+        selected_task_answers[selected_task_index] = isCorrect ? 'correct' : 'incorrect';
+    } else {
+        console.error('Invalid task type:', current_task.type);
+        return;
+    }
+
+    console.log(`Question ${selected_task_index + 1} answered:`, selected_task_answers[selected_task_index]);
+
+    const nextTask = get_new_task();
+    if (nextTask) {
+        set_new_task(nextTask);
+    } else {
+        end_test();
+    }
+}
+
+    function startTest() {
     const task = get_new_task();
     set_new_task(task);
 }
+
+// https://csnt2.csdd.lv/LAT/parskats
+// https://www.csdd.lv/en/driving-licence-for-vehicle-b/the-theory-test-and-applying-for-the-test
+
+// jābūt 30 jautājumiem, 30min, 3 kļūdām max
+
+// TODO: Create and display a timer with a countdown (e.g. 10 minutes)
+// TODO: Automatically end the test and show results when time runs out
+// TODO: Show the remaining time during the test
+// TODO: Randomize the order of answer options for each question

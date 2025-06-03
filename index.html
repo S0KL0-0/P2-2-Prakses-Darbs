@@ -14,14 +14,22 @@
         <button onclick="startTest()">Sākt testu!</button>
     </div>
 
-    <div class="task">
-        <p id="name"></p>
+    <div id="task">
         <p id="question"></p>
         <div id="image_div">
             <img id="image" src="" alt="">
         </div>
 
         <div id="options"></div>
+
+        <div id="next-button" style="display: none;">
+            <button onclick="next_button_pressed()">Nākamais</button>
+        </div>
+
+    </div>
+
+    <div id="test_results">
+
     </div>
 
 </div>
