@@ -116,7 +116,285 @@ const tasks = [
                 'Dosiet ceļu zilajam automobilim un apbrauksiet šķērsli pa kreiso pusi.'
             ],
         answer: 'Apbrauksiet šķērsli pa labo pusi.'
-    }
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-11.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Dosiet ceļu velosipēda vadītājam.',
+                'Šķērsosiet krustojumu pirmais.'
+            ],
+        answer: 'Dosiet ceļu velosipēda vadītājam.'
+    },
+    {
+        question: 'Kā alkoholiskie dzērieni ietekmē transportlīdzekļa vadītāja reakcijas laiku?',
+        image: 'imgs/img-12.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Reakcijas laiku neizmaina.',
+                'Reakcijas laiku palielina.',
+                'Reakcijas laiku samazina.'
+            ],
+        answer: 'Reakcijas laiku samazina.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
+        image: 'imgs/img-13.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Šķērsosiet krustojumu pirmais.',
+                'Dosiet ceļu motociklam.'
+            ],
+        answer: 'Dosiet ceļu motociklam.'
+    },
+    {
+        question: 'Kāda būs Jūsu pirmā rīcība, ja vēlaties nogriezties pa kreisi attēlotajā situācijā?',
+        image: 'imgs/img-14.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Ieslēgšu pagrieziena signālu.',
+                'Pārliecināšos par drošību.'
+            ],
+        answer: 'Ieslēgšu pagrieziena signālu.'
+    },
+    {
+        question: 'Par ko brīdina ceļa zīme?',
+        image: 'imgs/img-15.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Par bīstamu labo pagriezienu.',
+                'Par bīstamiem pagriezieniem, kur pirmais pagrieziens būs pa labi.',
+                'Par lejupceļu ar sekojošu augšupceļu.'
+            ],
+        answer: 'Par bīstamiem pagriezieniem, kur pirmais pagrieziens būs pa labi.'
+    },
+    {
+        question: 'Kāda ir darbības zona ceļa zīmei “Braukt taisni” attēlotajā situācijā?',
+        image: 'imgs/img-16.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Līdz nākošajam krustojumam.',
+                'Līdz ceļa zīmei “Apdzīvotas vietas beigas”'
+            ],
+        answer: 'Līdz nākošajam krustojumam.'
+    },
+    {
+        question: 'Kā jārīkojas dzeltenā automobiļa vadītājam attēlotā situācijā?',
+        image: 'imgs/img-17.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Jāturpina kustība nesamazinot ātrumu.',
+                'Strauji jābremzē.'
+            ],
+        answer: 'Strauji jābremzē.'
+    },
+    {
+        question: 'Kuriem transportlīdzekļu vadītājiem atļauts braukt attēlotajā situācijā?',
+        image: 'imgs/img-18.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Kravas automobiļa, vieglā automobiļa un autobusa vadītājiem.',
+                'Visiem transportlīdzekļu vadītājiem braukt aizliegts.',
+                'Kravas automobiļa un vieglā automobiļa vadītājiem.'
+            ],
+        answer: 'Visiem transportlīdzekļu vadītājiem braukt aizliegts.'
+    },
+    {
+        question: 'Par ko brīdina attēlotais ceļa apzīmējums?',
+        image: 'imgs/img-19.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Par nepārtrauktās līnijas tuvošanos.',
+                'Par to, ka atrodaties uz ātrgaitas ceļa.'
+            ],
+        answer: 'Par nepārtrauktās līnijas tuvošanos.'
+    },
+    {
+        question: 'Vai attēlotajā situācijā atļauts apdzīt?',
+        image: 'imgs/img-20.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Aizliegts.',
+                'Atļauts.'
+            ],
+        answer: 'Atļauts.'
+    },
+    {
+        question: 'Kāds ir maksimāli atļautais braukšanas ātrums velkot automobili?',
+        image: 'imgs/img-21.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                '90km/h.',
+                '50km/h.',
+                '80km/h.',
+                '100km/h.'
+            ],
+        answer: '90km/h.'
+    },
+    {
+        question: 'Vai velosipēds ir pareizi nostiprināts pārvadāšanai?',
+        image: 'imgs/img-22.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Pareizi, jo nerada lieku gaisa pretestību.',
+                'Nepareizi, jo aizsedz apgaismes ierīces un numurzīmi.'
+            ],
+        answer: 'Nepareizi, jo aizsedz apgaismes ierīces un numurzīmi.'
+    },
+    {
+        question: 'Pa kuru trajektoriju automobiļa vadītājam atļauts krustojumā nogriezties pa labi?',
+        image: 'imgs/img-23.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Tikai A.',
+                'Pa A vai B.',
+                'Tikai B.'
+            ],
+        answer: 'Tikai A.'
+    },
+    {
+        question: 'Kuram no minētajiem faktoriem ir būtiskākā ietekme uz degvielas patēriņu pilsētā?',
+        image: 'imgs/img-24.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Optimālai maršruta plānošanai.',
+                'Cilvēku skaitam transportlīdzeklī.',
+                'Vēja ātrumam.'
+            ],
+        answer: 'Optimālai maršruta plānošanai.'
+    },
+    {
+        question: 'Kad velkamajam automobilim ir jābūt iedegtai avārijas gaismas signalizācijai?',
+        image: 'imgs/img-25.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Braucot apdzīvotās vietās.',
+                'Braucot ārpus apdzīvotām vietām.',
+                'Braucot diennakts tumšajā laikā.',
+                'Vienmēr.'
+            ],
+        answer: 'Vienmēr.'
+    },
+    {
+        question: 'Kuram satiksmes dalībniekam ir priekšroka attēlotajā situācijā?',
+        image: 'imgs/img-26.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Automobiļa vadītājam.',
+                'Gājējam.'
+            ],
+        answer: 'Gājējam.'
+    },
+    {
+        question: 'Kurā attēlā pareizāk tiek veikta cietušā izvilkšana no ceļu satiksmes negadījumā iekļuvušā automobiļa?',
+        image: 'imgs/img-27.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'A.',
+                'B.',
+                'Abi paņēmieni ir pareizi.'
+            ],
+        answer: 'Abi paņēmieni ir pareizi.'
+    },
+    {
+        question: 'Vai vieglā automobiļa vadītājam atļauts apdzīt attēlotajā situācijā?',
+        image: 'imgs/img-28.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Aizliegts, jebkurā gadījumā.',
+                'Atļauts.',
+                'Aizliegts, tikai gadījumos, ja tuvojas transportlīdzekļi no kreisās puses.'
+            ],
+        answer: 'Aizliegts, jebkurā gadījumā.'
+    },
+    {
+        question: 'Ko norāda attēlotā papildzīme?',
+        image: 'imgs/img-29.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Norāda ieteicamo braukšanas virzienu pa labi.',
+                'Ka atrodaties uz mazāksvarīga ceļa, kurš krustojumā maina virzienu pa labi.',
+                'Ka atrodaties uz galvenā ceļa, kurš krustojumā maina virzienu pa labi.'
+            ],
+        answer: 'Ka atrodaties uz galvenā ceļa, kurš krustojumā maina virzienu pa labi.'
+    },
+    {
+        question: 'Vai pasažieriem atļauts atrasties velkamajā automobilī?',
+        image: 'imgs/img-30.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Aizliegts.',
+                'Atļauts.'
+            ],
+        answer: 'Aizliegts.'
+    },
+    {
+        question: 'Pa kuru no trajektorijām vieglā automobiļa vadītājam atļauts apsteigt kravas automobili apdzīvotā vietā?',
+        image: 'imgs/img-31.png',
+        type: 'single', // single / multi
+        options:
+            [
+                'Pa A un B.',
+                'Tikai pa B.',
+                'Tikai pa A.'
+            ],
+        answer: 'Pa A un B.'
+    },
+    {
+        question: 'Kuros virzienos automobiļa vadītājam ir atļauts braukt attēlotā situācijā?',
+        image: 'imgs/img-32.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'A C D E.',
+                'B C D.',
+                'B C E.'
+            ],
+        answer: 'A C D E.'
+    },
+    {
+        question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā (dzeltens mirgojošs signāls)?',
+        image: 'imgs/img-33.jpg',
+        type: 'single', // single / multi
+        options:
+            [
+                'Šķērsosiet krustojumu pirmais.',
+                'Dosiet ceļu pretim braucošā automobiļa vadītājam.'
+            ],
+        answer: 'Dosiet ceļu pretim braucošā automobiļa vadītājam.'
+    }/*,
+    {
+        question: '',
+        image: 'imgs/',
+        type: 'single', // single / multi
+        options:
+            [
+                '',
+                ''
+            ],
+        answer: ''
+    }*/
 ];
 
 let selected_task_indices = [];
@@ -127,6 +405,9 @@ let countdownTimer = null;
 let startTime = null;
 let targetTime = null;
 let testCompleted = false;
+
+let TaskAmount = 30;
+let TimeAmount = 30;
 
 function isIndexUsed(index) {
     return selected_task_indices.includes(index);
@@ -284,7 +565,7 @@ function next_button_pressed() {
             selected_task_answers[selected_task_index] = 'incorrect';
         }
     } else if (current_task.type === 'multi') {
-        // Handle multi-choice questions
+
         const selectedOptions = document.querySelectorAll('input[name="question-option"]:checked');
 
         if (selectedOptions.length === 0) {
@@ -292,11 +573,8 @@ function next_button_pressed() {
             return;
         }
 
-        // Get selected values
         const selectedValues = Array.from(selectedOptions).map(option => option.value);
 
-        // Assume current_task.answer is an array for multi-choice questions
-        // or a single string that needs to match all selected answers
         let isCorrect = false;
 
         if (Array.isArray(current_task_answer)) {
@@ -313,7 +591,12 @@ function next_button_pressed() {
 
     console.log(`Question ${selected_task_index + 1} answered:`, selected_task_answers[selected_task_index]);
 
+    if (selected_task_index === TaskAmount - 1) {
+        end_test();
+    }
+
     const nextTask = get_new_task();
+
     if (nextTask) {
         set_new_task(nextTask);
     } else {
@@ -325,7 +608,7 @@ function startTest() {
     testCompleted = false;
     const task = get_new_task();
     set_new_task(task);
-    startCountdown(tasks.length);
+    startCountdown(TimeAmount);
 }
 
 // https://csnt2.csdd.lv/LAT/parskats
