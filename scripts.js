@@ -130,7 +130,7 @@ const tasks = [
     },
     {
         question: 'Kā alkoholiskie dzērieni ietekmē transportlīdzekļa vadītāja reakcijas laiku?',
-        image: 'imgs/img-12.jpg',
+        image: 'imgs/img-12.png',
         type: 'single', // single / multi
         options:
             [
@@ -636,6 +636,9 @@ function startCountdown(minutes) {
     if (countdownTimer !== null) {
         clearInterval(countdownTimer); // Prevent multiple intervals
     }
+
+    const CountdownDiv = document.getElementById('countdown-container');
+    CountdownDiv.style.display = 'flex';
 
     startTime = new Date().getTime();
     targetTime = startTime + minutes * 60 * 1000;

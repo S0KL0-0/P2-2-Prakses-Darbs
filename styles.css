@@ -1,5 +1,5 @@
 body {
-    background-color: #2a2a2a;
+    background-color: #2a2a2a; /* #bf33cf */
     color: #e0e0e0;
     margin: 0;
     padding: 0;
@@ -16,30 +16,27 @@ body {
     right: 0;
     top: 0;
     height: 10%;
-    background-color: #333333FF;
+    background-color: #333333FF; /* #77C658FF */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 5px;
 }
 
-.countdown-container {
+#countdown-container {
+    display: none;
     background-color: #4a4a4a;
     border: 2px solid #5a5a5a;
     border-radius: 12px;
-    padding: 15px 25px;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    width: max-content;
+    height: max-content;
+    left: 80%;
+    right: 10%;
+    top: 2%;
+    bottom: 2%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.countdown-label {
-    font-size: 14px;
-    color: #b0b0b0;
-    margin: 0;
-    font-weight: normal;
 }
 
 #countdown {
@@ -72,20 +69,24 @@ body {
     right: 0;
     bottom: 0;
     height: 10%;
-    background-color: #333333FF;
+
+    background-color: #333333FF; /* #F84343FF */
 }
 
 .main-container {
     left: 0;
     right: 0;
-    width: 90%;
-    max-width: 800px;
-    min-height: 600px;
+    width: max-content;
+    height: max-content;
+    min-width: 70%;
+    max-width: 90%;
+    min-height: 50%;
+    max-height: 60%;
     border-width: 2px;
-    padding: 2%;
+    padding: 3%;
     border-style: solid;
     border-color: #4a4a4a;
-    background-color: #333333;
+    background-color: #333333; /* #4f74c3 */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -101,9 +102,21 @@ body {
     text-align: center;
     color: #e0e0e0;
     width: 100%;
-    display: flex;
+    display: flow;
     flex-direction: column;
-    align-items: center;
+
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    float: right;
 }
 
 #start-button {
@@ -114,9 +127,9 @@ body {
 
 #image-div {
     display: flex;
-    justify-content: center;
+    margin: auto;
+    right: 0;
     align-items: center;
-    margin: 15px 0;
 }
 
 #options {
@@ -129,8 +142,8 @@ body {
 
 #image {
     border-radius: 8px;
-    max-width: 30%;
-    max-height: 30%;
+    max-width: 90%;
+    max-height: 90%;
     border: 1px solid #4a4a4a;
 }
 

@@ -9,8 +9,7 @@
 <body>
 
 <div class="header">
-    <div class="countdown-container">
-        <div class="countdown-label">Atlikušais laiks</div>
+    <div id="countdown-container">
         <div id="countdown">--:--</div>
     </div>
 </div>
@@ -22,16 +21,21 @@
     </div>
 
     <div id="task">
-        <p id="question"></p>
-        <div id="image-div">
-            <img id="image" src="" alt="">
+        <div class="right">
+            <p id="question"></p>
+
+            <div id="options"></div>
+
+            <div id="next-button" style="display: none;">
+                <button onclick="next_button_pressed()">Nākamais</button>
+            </div>
+        </div>
+        <div class="left">
+            <div id="image-div">
+                <img id="image" src="" alt="">
+            </div>
         </div>
 
-        <div id="options"></div>
-
-        <div id="next-button" style="display: none;">
-            <button onclick="next_button_pressed()">Nākamais</button>
-        </div>
 
     </div>
 
