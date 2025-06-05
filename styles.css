@@ -18,11 +18,29 @@ body {
     height: 80px;
     background-color: #333333;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
     box-sizing: border-box;
+}
+
+#question-tracker-container {
+    display: none;
+    background-color: #4a4a4a;
+    border: 2px solid #5a5a5a;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#question-tracker {
+    font-size: 28px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #2196F3;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #countdown-container {

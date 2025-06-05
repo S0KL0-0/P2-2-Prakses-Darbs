@@ -7,9 +7,15 @@ let startTime = null;
 let targetTime = null;
 let testCompleted = false;
 
-let TaskAmount = 30;
-let MistakeAmount = 3; // Allowed
-let TimeAmount = 1;
+// this info was based on the official CSDD test specifications
+let TaskAmount = 30; // amount of questions
+let MistakeAmount = 3; // Allowed mistakes
+let TimeAmount = 30; // in min
+
+function updateQuestionTracker() {
+    const questionTrackerElement = document.getElementById("question-tracker");
+    questionTrackerElement.textContent = `${selected_task_index + 1}/${TaskAmount}`;
+}
 
 function isIndexUsed(index) {
     return selected_task_indices.includes(index);
@@ -28,6 +34,7 @@ function get_new_task() {
 
     selected_task_indices.push(index);
     selected_task_index++;
+    updateQuestionTracker();
     return tasks[index];
 }
 
@@ -45,9 +52,14 @@ function end_test(reason = 'completed') {
     const Next_Button = document.getElementById("next-button");
     Next_Button.style.display = 'none';
 
+    const CountdownDiv = document.getElementById('countdown-container');
+    CountdownDiv.style.display = 'none';
+
+    const QuestionTrackerContainer = document.getElementById("question-tracker-container");
+    QuestionTrackerContainer.style.display = 'none';
+
     const correctAnswers = selected_task_answers.filter(answer => answer === 'correct').length;
-    const totalQuestions = selected_task_answers.length;
-    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+    const mistakes = TaskAmount - correctAnswers;
 
     const elapsedTime = getElapsedTimeFormatted();
     const reasonText = reason === 'timeout' ? ' (laiks beidzās)' : '';
@@ -57,10 +69,9 @@ function end_test(reason = 'completed') {
     scoreDiv.innerHTML = `
         <h2>Testa rezultāts${reasonText}</h2>
         <div class="score-summary">
-            <p><strong>Rezultāts: ${correctAnswers}/${totalQuestions}</strong></p>
-            <p><strong>Procenti: ${percentage}%</strong></p>
+            <p><strong>Rezultāts: ${correctAnswers}/${TaskAmount}</strong></p>
             <div class="time-info">Pavadītais laiks: ${elapsedTime}</div>
-            ${percentage >= 70 ? '<p class="pass">✅ Tests nolikts!</p>' : '<p class="fail">❌ Tests nenolikts!</p>'}
+            ${mistakes <= MistakeAmount ? '<p class="pass">✅ Tests nolikts!</p>' : '<p class="fail">❌ Tests nenolikts!</p>'}
         </div>
     `;
 
@@ -212,6 +223,9 @@ function startTest() {
 
     const Task = document.getElementById('task');
     Task.style.display = 'flex';
+
+    const QuestionTrackerContainer = document.getElementById('question-tracker-container');
+    QuestionTrackerContainer.style.display = 'flex';
 
     set_new_task(task);
     startCountdown(TimeAmount);
