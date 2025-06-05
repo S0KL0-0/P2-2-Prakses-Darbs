@@ -89,6 +89,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: max-content;
 }
 
 #task {
@@ -97,7 +98,6 @@ body {
     font-size: 16px;
     color: #e0e0e0;
     width: 100%;
-    display: none;
 }
 
 #task.active {
@@ -117,7 +117,8 @@ body {
         width: 50%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
+        min-height: 400px; /* Fixed height for image container */
     }
 
     .right {
@@ -146,13 +147,14 @@ body {
 
     .left {
         width: 100%;
+        min-height: 250px; /* Fixed height for mobile */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .right {
         width: 100%;
-    }
-
-    .right {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -164,16 +166,19 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 #image {
     border-radius: 8px;
     max-width: 100%;
-    max-height: 400px;
+    max-height: 100%;
     width: auto;
     height: auto;
     border: 1px solid #4a4a4a;
     object-fit: contain;
+    /* Center the image and allow it to scale up to fit the container */
+    display: block;
 }
 
 #question {
@@ -181,11 +186,15 @@ body {
     font-size: 18px;
     line-height: 1.4;
     text-align: left;
+    min-height: 50px; /* Fixed minimum height to prevent jumping */
+    display: flex;
+    align-items: flex-start;
 }
 
 @media screen and (max-width: 767px) {
     #question {
         text-align: center;
+        justify-content: center;
     }
 }
 
@@ -196,6 +205,8 @@ body {
     gap: 12px;
     margin: 20px 0;
     width: 100%;
+    /* Fixed minimum height for 4 options to prevent layout jumping */
+    min-height: 272px; /* 4 options × (50px min-height + 12px gap) + some padding */
 }
 
 .option-item {
@@ -211,6 +222,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     min-height: 50px;
+    flex-shrink: 0; /* Prevent options from shrinking */
 }
 
 .option-item:hover {
@@ -244,6 +256,8 @@ body {
     justify-content: center;
     margin-top: 25px;
     width: 100%;
+    /* Fixed height to prevent jumping */
+    min-height: 60px;
 }
 
 button {
@@ -341,5 +355,14 @@ button:active {
 
     .main-container {
         padding: 15px;
+    }
+
+    /* Adjust fixed heights for smaller screens */
+    #options {
+        min-height: 240px; /* Slightly smaller for mobile */
+    }
+
+    .left {
+        min-height: 200px; /* Smaller image container for mobile */
     }
 }

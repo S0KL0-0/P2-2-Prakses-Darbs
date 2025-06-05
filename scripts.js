@@ -8,7 +8,8 @@ let targetTime = null;
 let testCompleted = false;
 
 let TaskAmount = 30;
-let TimeAmount = 30;
+let MistakeAmount = 3; // Allowed
+let TimeAmount = 1;
 
 function isIndexUsed(index) {
     return selected_task_indices.includes(index);
@@ -208,16 +209,13 @@ function next_button_pressed() {
 function startTest() {
     testCompleted = false;
     const task = get_new_task();
+
+    const Task = document.getElementById('task');
+    Task.style.display = 'flex';
+
     set_new_task(task);
     startCountdown(TimeAmount);
 }
-
-// https://csnt2.csdd.lv/LAT/parskats
-// https://www.csdd.lv/en/driving-licence-for-vehicle-b/the-theory-test-and-applying-for-the-test
-
-// jābūt 30 jautājumiem, 30min, 3 kļūdām max
-
-// TODO: Randomize the order of answer options for each question
 
 function formatTime(minutes, seconds) {
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
