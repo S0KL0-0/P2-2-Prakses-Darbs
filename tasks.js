@@ -33,7 +33,7 @@ const tasks = [
                 'Dosiet ceļu abu transportlīdzekļu vadītājiem.',
                 'Šķērsosiet krustojumu pirmais.'
             ],
-        answer: 'Dosiet ceļu tikai operatīvā transportlīdzekļa vadītājam.'
+        answer: 'Dosiet ceļu abu transportlīdzekļu vadītājiem.'
     },
     {
         question: 'Kā degvielas patēriņu ietekmē antispārns?',
@@ -91,7 +91,7 @@ const tasks = [
                 'Dosiet ceļu kravas automobiļa vadītājam.',
                 'Šķērsosiet krustojumu pirmais.'
             ],
-        answer: 'Dosiet ceļu kravas automobiļa vadītājam.'
+        answer: 'Dosiet ceļu pretim braucošajam vieglā automobiļa vadītājam.'
     },
     {
         question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
@@ -104,7 +104,7 @@ const tasks = [
                 'Dosiet ceļu vieglā automobiļa un velosipēda vadītājam.',
                 'Dosiet ceļu tikai vieglā automobiļa vadītājam.'
             ],
-        answer: 'Šķērsosiet krustojumu pirmais.'
+        answer: 'Dosiet ceļu tikai vieglā automobiļa vadītājam.'
     },
     {
         question: 'Kā rīkosieties attēlotajā situācijā?',
@@ -138,7 +138,7 @@ const tasks = [
                 'Reakcijas laiku palielina.',
                 'Reakcijas laiku samazina.'
             ],
-        answer: 'Reakcijas laiku samazina.'
+        answer: 'Reakcijas laiku palielina.'
     },
     {
         question: 'Kā rīkosieties, šķērsojot krustojumu, attēlotajā situācijā?',
@@ -183,7 +183,7 @@ const tasks = [
                 'Līdz nākošajam krustojumam.',
                 'Līdz ceļa zīmei “Apdzīvotas vietas beigas”'
             ],
-        answer: 'Līdz nākošajam krustojumam.'
+        answer: 'Līdz ceļa zīmei “Apdzīvotas vietas beigas”'
     },
     {
         question: 'Kā jārīkojas dzeltenā automobiļa vadītājam attēlotā situācijā?',
@@ -206,7 +206,7 @@ const tasks = [
                 'Visiem transportlīdzekļu vadītājiem braukt aizliegts.',
                 'Kravas automobiļa un vieglā automobiļa vadītājiem.'
             ],
-        answer: 'Visiem transportlīdzekļu vadītājiem braukt aizliegts.'
+        answer: 'Kravas automobiļa un vieglā automobiļa vadītājiem.'
     },
     {
         question: 'Par ko brīdina attēlotais ceļa apzīmējums?',
@@ -228,7 +228,7 @@ const tasks = [
                 'Aizliegts.',
                 'Atļauts.'
             ],
-        answer: 'Atļauts.'
+        answer: 'Aizliegts.'
     },
     {
         question: 'Kāds ir maksimāli atļautais braukšanas ātrums velkot automobili?',
@@ -312,7 +312,7 @@ const tasks = [
                 'B.',
                 'Abi paņēmieni ir pareizi.'
             ],
-        answer: 'Abi paņēmieni ir pareizi.'
+        answer: 'A.'
     },
     {
         question: 'Vai vieglā automobiļa vadītājam atļauts apdzīt attēlotajā situācijā?',
@@ -324,7 +324,7 @@ const tasks = [
                 'Atļauts.',
                 'Aizliegts, tikai gadījumos, ja tuvojas transportlīdzekļi no kreisās puses.'
             ],
-        answer: 'Aizliegts, jebkurā gadījumā.'
+        answer: 'Aizliegts, jebkurā gadījumā.' // maybe 'Atļauts.'
     },
     {
         question: 'Ko norāda attēlotā papildzīme?',
@@ -359,7 +359,7 @@ const tasks = [
                 'Tikai pa B.',
                 'Tikai pa A.'
             ],
-        answer: 'Pa A un B.'
+        answer: 'Tikai pa A.'
     },
     {
         question: 'Kuros virzienos automobiļa vadītājam ir atļauts braukt attēlotā situācijā?',
