@@ -157,7 +157,6 @@ function arraysMatchExactly(arr1, arr2) {
     return true;
 }
 
-
 function next_button_pressed() {
 
     let current_task = tasks[selected_task_indices[selected_task_index]];
@@ -217,7 +216,16 @@ function next_button_pressed() {
     }
 }
 
+function addImage() {
+    const ImageDiv = document.getElementById('image-div');
+    const Image = document.createElement('img');
+    Image.id = 'image';
+    ImageDiv.appendChild(Image);
+}
+
 function startTest() {
+    addImage();
+
     testCompleted = false;
     const task = get_new_task();
 
