@@ -33,7 +33,7 @@ const tasks = [
                 'Dosiet ceļu abu transportlīdzekļu vadītājiem.',
                 'Šķērsosiet krustojumu pirmais.'
             ],
-        answer: 'Dosiet ceļu abu transportlīdzekļu vadītājiem.'
+        answer: 'Dosiet ceļu tikai operatīvā transportlīdzekļa vadītājam.'
     },
     {
         question: 'Kā degvielas patēriņu ietekmē antispārns?',
@@ -241,7 +241,7 @@ const tasks = [
                 '80km/h.',
                 '100km/h.'
             ],
-        answer: '90km/h.'
+        answer: '50km/h.'
     },
     {
         question: 'Vai velosipēds ir pareizi nostiprināts pārvadāšanai?',

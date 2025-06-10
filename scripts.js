@@ -88,7 +88,7 @@ function set_new_task(task) {
     const Question = document.getElementById("question");
     Question.textContent = task.question;
 
-    const Image = document.getElementById("image");
+    const Image = document.getElementById('image');
     Image.src = task.image;
 
     const Options = document.getElementById("options");
@@ -217,10 +217,45 @@ function next_button_pressed() {
 }
 
 function addImage() {
-    const ImageDiv = document.getElementById('image-div');
-    const Image = document.createElement('img');
-    Image.id = 'image';
-    ImageDiv.appendChild(Image);
+
+    function isMobile() {
+        const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        return regex.test(navigator.userAgent);
+    }
+
+    if (isMobile()) {
+
+        const Question = document.getElementById('question');
+        Question.style.fontSize = '24px';
+
+        const Options = document.getElementById('options');
+        Options.style.fontSize = '22px';
+
+        const ImageDivMobile = document.getElementById('image-div-mobile');
+        const ImageMobile = document.createElement('img');
+        ImageMobile.id = 'image';
+        ImageDivMobile.appendChild(ImageMobile);
+
+        const Left = document.getElementsByClassName('left')[0];
+        Left.style.display = 'none';
+
+        const Task = document.getElementById('task');
+        Task.style.flexDirection = 'column';
+        Task.style.alignItems = 'center';
+
+        const Right = document.getElementsByClassName('right')[0];
+        Right.style.flexDirection = 'column';
+        Right.style.alignItems = 'center';
+        Right.style.width = '100%';
+
+    } else {
+
+        const ImageDivDesktop = document.getElementById('image-div-desktop');
+        const ImageDesktop = document.createElement('img');
+        ImageDesktop.id = 'image';
+        ImageDivDesktop.appendChild(ImageDesktop);
+
+    }
 }
 
 function startTest() {

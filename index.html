@@ -18,19 +18,22 @@
     </div>
 </div>
 
-<div class="main-container">
+<div id="main-container">
 
-    <div id="start-button">
-        <button onclick="startTest()">Sākt testu!</button>
+    <div id="start-button-div">
+        <button id="start-button" onclick="startTest()">Sākt testu!</button>
     </div>
 
     <div id="task" style="display: none"> <!-- style="display: none" is needed here cause dark magic exists and if you move it to style css it stops working properly  -->
         <div class="left">
-            <div id="image-div">
+            <div class="image-div" id="image-div-desktop">
             </div>
         </div>
         <div class="right">
             <p id="question"></p>
+
+            <div class="image-div" id="image-div-mobile">
+            </div>
 
             <div id="options"></div>
 
